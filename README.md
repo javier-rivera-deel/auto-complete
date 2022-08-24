@@ -15,3 +15,6 @@ The API data comes from the Pokemon API: https://pokeapi.co/. Feel free to query
 To run the project, execute `npm run start`
 
 Visit a live version of the project at: https://havebeeair.com/auto-complete
+
+![C9DA547E-2FE3-452C-A3EF-DFDA01C53A83-566-0001726CD1B11C75](https://user-images.githubusercontent.com/5483911/186437647-ebba7015-393f-48a0-a94e-a73dce87dba5.gif)
+
