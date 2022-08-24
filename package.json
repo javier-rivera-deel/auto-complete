@@ -1,6 +1,6 @@
 {
   "name": "debounce-example",
-  "homepage": "https://havebeeair.com/autocomplete",
+  "homepage": "https://havebeeair.com/auto-complete",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
