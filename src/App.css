@@ -48,7 +48,6 @@ body {
 .suggestions li:hover {
   background-color: #ebebeb;
   cursor: pointer;
-  font-weight: 700;
 }
 
 .input-ac {
