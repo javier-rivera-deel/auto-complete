@@ -50,10 +50,8 @@ export default function Autocomplete() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [fetchedSuggestions]);
 
+  // detects click outside the input to close it / clean data
   useEffect(() => {
-    /**
-     * Alert if clicked on outside of element
-     */
     function handleClickOutside(event) {
       if (wrapperRef.current && !wrapperRef.current.contains(event.target)) {
         setFilteredSuggestions([]);
