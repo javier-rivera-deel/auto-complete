@@ -15,7 +15,7 @@ export default function Autocomplete() {
   const [requestError, setRequestError] = useState(false);
   const [showResults, setShowResults] = useState(false);
 
-  const wrapperRef = useRef(null);
+  const wrapperRef = useRef<HTMLDivElement>(null);
 
   const debounceFunction = () => {
     let timer: ReturnType<typeof setTimeout>;
