@@ -13,3 +13,5 @@ For this challenge, the focus is on performance, while achieving all acceptance 
 The API data comes from the Pokemon API: https://pokeapi.co/. Feel free to query the names of your favorite Pokemons!
 
 To run the project, execute `npm run start`
+
+Visit a live version of the project at: https://havebeeair.com/autocomplete
