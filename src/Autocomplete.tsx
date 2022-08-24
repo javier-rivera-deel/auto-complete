@@ -1,4 +1,4 @@
-import React, { useState, useCallback, useEffect } from "react";
+import React, { useState, useCallback, useEffect, useRef } from "react";
 import {
   FilteredSuggestionsType,
   FetchedSuggestionsType,
@@ -14,6 +14,8 @@ export default function Autocomplete() {
     useState<FetchedSuggestionsType>([]);
   const [requestError, setRequestError] = useState(false);
   const [showResults, setShowResults] = useState(false);
+
+  const wrapperRef = useRef(null);
 
   const debounceFunction = () => {
     let timer: ReturnType<typeof setTimeout>;
@@ -47,6 +49,24 @@ export default function Autocomplete() {
     // Not necessary to hear out for other variables
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [fetchedSuggestions]);
+
+  useEffect(() => {
+    /**
+     * Alert if clicked on outside of element
+     */
+    function handleClickOutside(event) {
+      if (wrapperRef.current && !wrapperRef.current.contains(event.target)) {
+        setFilteredSuggestions([]);
+        setShowResults(false);
+      }
+    }
+    // Bind the event listener
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      // Unbind the event listener on clean up
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [wrapperRef]);
 
   const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const userInput = e.currentTarget.value;
@@ -123,7 +143,7 @@ export default function Autocomplete() {
   };
 
   return (
-    <div className="input-ac">
+    <div className="input-ac" ref={wrapperRef}>
       <input
         type="text"
         value={userInput}
@@ -132,9 +152,7 @@ export default function Autocomplete() {
         className="input-autocomplete"
         placeholder="Who's your favorite pokemon?"
       />
-      <div className="suggestion-list">
-        {userInput.length > 0 && suggestionList()}
-      </div>
+      <div className="suggestion-list">{suggestionList()}</div>
     </div>
   );
 }
