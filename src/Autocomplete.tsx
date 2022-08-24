@@ -130,7 +130,7 @@ export default function Autocomplete() {
         onChange={onChange}
         onKeyDown={onKeyDown}
         className="input-autocomplete"
-        placeholder="What's your favorite pokemon?"
+        placeholder="Who's your favorite pokemon?"
       />
       <div className="suggestion-list">
         {userInput.length > 0 && suggestionList()}
