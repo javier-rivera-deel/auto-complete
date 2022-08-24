@@ -4,9 +4,16 @@ body {
 
 .input-autocomplete {
   border: 1px solid #999;
+  border-radius: 50px;
   padding: 1rem 1.5rem;
   width: 300px;
   font-size: 1rem;
+  outline: none;
+}
+
+.input-autocomplete-with-results {
+  border-radius: 15px 15px 0 0;
+  border-bottom: 0px;
 }
 
 .app {
@@ -50,7 +57,7 @@ body {
 
 .suggestion-list {
   position: absolute;
-  top: 52px;
+  top: 51px;
   left: 0;
 }
 

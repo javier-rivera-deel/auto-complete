@@ -24,7 +24,7 @@ export default function Autocomplete() {
       timer = setTimeout(() => {
         // url hard coded, can be customizable, but response data structure needs to be
         // taken into consideration
-        fetch("https://pokeapi.co/api/v2/pokemon")
+        fetch("https://pokeapi.co/api/v2/pokemon?limit=100")
           .then(res => res.json())
           .then((data: DataType) => {
             const pokenames = data.results.map(pokemon => pokemon.name);
@@ -150,7 +150,11 @@ export default function Autocomplete() {
         value={userInput}
         onChange={onChange}
         onKeyDown={onKeyDown}
-        className="input-autocomplete"
+        className={`input-autocomplete ${
+          showResults &&
+          filteredSuggestions.length > 0 &&
+          "input-autocomplete-with-results"
+        }`}
         placeholder="Who's your favorite pokemon?"
       />
       <div className="suggestion-list">{suggestionList()}</div>
