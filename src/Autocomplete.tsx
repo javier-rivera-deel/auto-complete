@@ -91,13 +91,16 @@ export default function Autocomplete() {
   // Accessibility management
   const onKeyDown = (e: { keyCode: number }) => {
     if (e.keyCode === 13) {
+      // user press enter, choosing the selected option
       setActiveSuggestion(0);
       setShowResults(false);
       setUserInput(filteredSuggestions[activeSuggestion]);
     } else if (e.keyCode === 38) {
+      // user press up arrow
       if (activeSuggestion === 0) return;
       setActiveSuggestion(activeSuggestion - 1);
     } else if (e.keyCode === 40) {
+      // user press down arrow
       if (activeSuggestion - 1 === filteredSuggestions.length) return;
       setActiveSuggestion(activeSuggestion + 1);
     } else if (e.keyCode === 27) {
